@@ -89,7 +89,7 @@ $npm run watch-scss
 ├── css
     ├── app.css
     ├── vendor.css
-    ├── vendor.css
-    └── vendor.css
+    ├── admin.css
+    └── frontend.css
 </code>
 </pre>
