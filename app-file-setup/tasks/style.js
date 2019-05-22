@@ -2,8 +2,9 @@ var gulp    = require('gulp'),
     sass    = require('gulp-sass'),
     plumber = require('gulp-plumber'),
     concat  = require('gulp-concat'),
+    gutil   = require('gulp-util'),
     _       = require('underscore'),
-    config  = module.exports;
+    config  = module.exports = _.clone(require('../config/config'));
 
 // SCSS & CSS Path
 config.sassSrcDir    = './scss';
@@ -28,9 +29,23 @@ gulp.task('main-css', function () {
         .pipe(gulp.dest(config.cssPath))
 });
 
+// App CSS Function
+gulp.task('app-css', function () {
+    gulp.src(config.sassSrcDir + '/application/' + config.app + '.scss')
+        .pipe(plumber())
+        .pipe(sass({
+            sourceComments: 'map',
+            outputStyle: 'compact',
+            includePaths: [
+                require('node-bourbon').includePaths
+            ]
+        }))
+        .pipe(gulp.dest(config.cssPath))
+});
+
 // Gulp Task Merged Function
 gulp.task('build-scss', function () {
-    gulp.start('vendor-css', 'main-css');
+    gulp.start('vendor-css', 'main-css', 'app-css');
 });
 
 // Gulp Watch Command
