@@ -11,9 +11,11 @@ This setup is used for compiling just a single common CSS file from multiple par
 2. **With App File Setup**  
 In some projects we need a specific CSS file for specific pages which are not used globally. For this type of requirement you can use this setup. You will get a common CSS file compiled & a specific CSS file(App File).
 
-**Note: You need to use only one setup at a time**  
+**Note: You need to use only one setup at a time as per your requirement**  
+
 
 ## Install Gulp Dependencies (Terminal)
+**Note: You need to run your Terminal inside app-file-setup or no-app-file-setup**
 ```
 $npm install
 ```
@@ -32,6 +34,16 @@ $npm run build-scss
 ```
 $npm run watch-scss
 ```
+
+## For Compiling specific app file you need to create a config file
+1. Copy config.shadow.json and rename the copied file to config.json.  
+2. After the file is created you can add your app file name in blank space. **For eg:** If your app file name is admin.scss
+```
+{
+    "app" : "admin"
+}
+```
+3. Run SCSS to CSS Build Command `$npm run build-scss`
 
 ## Basic Usage
 <p> <b>Source File(without app file)</b> </p>
@@ -74,10 +86,10 @@ $npm run watch-scss
            └── _media_queries.scss
     ├── vendor
         └── bootstrap.css
-    ├── application
+    ├── application (App File Folder)
         ├── _setup.scss
-        ├── admin.scss
-        └── frontend.scss
+        ├── admin.scss (App File)
+        └── frontend.scss (App File)
 </code>
 </pre>
 
