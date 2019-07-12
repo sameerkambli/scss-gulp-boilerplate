@@ -7,11 +7,11 @@
         "watch-scss": "gulp build-scss:watch"
     },
     "devDependencies": {
-        "gulp": "^3.9.1",
+        "gulp": "^4.0.2",
         "gulp-concat": "^2.6.1",
-        "gulp-plumber": "^1.1.0",
-        "gulp-sass": "^3.1.0",
-        "require-dir": "^0.3.2",
-        "underscore": "^1.8.3"
+        "gulp-plumber": "^1.2.1",
+        "gulp-sass": "^4.0.2",
+        "require-dir": "^1.2.0",
+        "underscore": "^1.9.1"
     }
 }
