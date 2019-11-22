@@ -6,4 +6,6 @@ php
 *.sublime-workspace
 
 /node_modules/*
+/css/*
 /config/config.json
+/package-lock.json
