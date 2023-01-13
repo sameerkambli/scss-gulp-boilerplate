@@ -4,11 +4,7 @@
     "version": "1.0.0",
     "scripts": {
         "build-scss": "gulp build-scss",
-        "watch-scss": "gulp build-scss:watch",
-        "preinstall": "npx npm-force-resolutions",
-        "resolutions": {
-            "glob-parent": "^5.1.2"
-        }
+        "watch-scss": "gulp build-scss:watch"
     },
     "devDependencies": {
         "gulp": "^4.0.2",
@@ -18,5 +14,8 @@
         "require-dir": "^1.2.0",
         "sass": "^1.57.1",
         "underscore": "^1.9.1"
+    },
+    "dependencies": {
+        "browser-sync": "^2.27.11"
     }
 }
