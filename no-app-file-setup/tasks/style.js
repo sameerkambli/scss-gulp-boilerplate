@@ -1,5 +1,6 @@
 var gulp    = require('gulp'),
-    sass    = require('gulp-sass'),
+    //sass    = require('gulp-sass');
+    sass = require('gulp-sass')(require('sass'));
     plumber = require('gulp-plumber'),
     concat  = require('gulp-concat'),
     _       = require('underscore'),
@@ -23,7 +24,7 @@ gulp.task('main-css', done => {
         .pipe(plumber())
         .pipe(sass({
             sourceComments: 'map',
-            outputStyle: 'compact'
+            outputStyle: 'expanded' // expanded or compressed
         }))
         .pipe(concat('main.css'))
         .pipe(gulp.dest(config.cssPath))
