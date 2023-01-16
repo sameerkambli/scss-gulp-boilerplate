@@ -1,6 +1,5 @@
 var gulp    = require('gulp'),
-    sass    = require('gulp-sass'),
-    plumber = require('gulp-plumber'),
+    sass    = require('gulp-sass')(require('sass')),
     concat  = require('gulp-concat'),
     _       = require('underscore'),
     config  = module.exports = _.clone(require('../config/config'));
@@ -20,10 +19,9 @@ gulp.task('vendor-css', done => {
 // Main CSS Function
 gulp.task('main-css', done => {
     var baseStream = gulp.src(config.sassSrcDir + '/base/main.scss')
-        .pipe(plumber())
         .pipe(sass({
             sourceComments: 'map',
-            outputStyle: 'compact'
+            outputStyle: 'expanded' // expanded or compressed
         }))
         .pipe(concat('main.css'))
         .pipe(gulp.dest(config.cssPath))
@@ -33,10 +31,9 @@ gulp.task('main-css', done => {
 // App CSS Function
 gulp.task('app-css', done => {
     gulp.src(config.sassSrcDir + '/application/' + config.app + '.scss')
-        .pipe(plumber())
         .pipe(sass({
             sourceComments: 'map',
-            outputStyle: 'compact',
+            outputStyle: 'expanded', // expanded or compressed
             includePaths: [
                 require('node-bourbon').includePaths
             ]

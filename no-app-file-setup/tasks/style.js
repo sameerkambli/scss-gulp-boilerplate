@@ -1,7 +1,7 @@
 var gulp    = require('gulp'),
-    sass = require('gulp-sass')(require('sass'));
+    sass = require('gulp-sass')(require('sass')),
     concat  = require('gulp-concat'),
-    browsersync = require('browser-sync').create();
+    //browsersync = require('browser-sync').create();
     config  = module.exports;
 
 // SCSS & CSS Path
@@ -30,19 +30,28 @@ gulp.task('main-css', done => {
 
 
 // Browsersync Tasks
-function browsersyncServe(cb){
-  browsersync.init({
-    server: {
-      baseDir: '.'
-    }
-  });
-  cb();
-}
+// function browsersyncServe(cb){
+//   browsersync.init({
+//     server: {
+//       baseDir: '.'
+//     }
+//   });
+//   cb();
+// }
 
-function browsersyncReload(cb){
-  browsersync.reload();
-  cb();
-}
+// function browsersyncReload(cb){
+//   browsersync.reload();
+//   cb();
+// }
+
+// gulp.task('build-scss:watch', () => {
+//     gulp.watch('./scss/**/*.scss*',  (done) => {
+//         gulp.series(
+//             gulp.parallel('vendor-css', 'main-css'), browsersyncReload, browsersyncServe
+//         )
+//         (done);
+//     });
+// });
 
 // Gulp Task Merged Function
 gulp.task('build-scss', gulp.series(
@@ -52,7 +61,7 @@ gulp.task('build-scss', gulp.series(
 gulp.task('build-scss:watch', () => {
     gulp.watch('./scss/**/*.scss*',  (done) => {
         gulp.series(
-            gulp.parallel('vendor-css', 'main-css'), browsersyncServe, browsersyncReload
+            gulp.parallel('vendor-css', 'main-css')
         )
         (done);
     });
